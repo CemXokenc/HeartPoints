@@ -32,9 +32,10 @@ local CFG = {
     inactiveColor    = { r = 0.7,  g = 0.7,  b = 0.7  },
 
     -- Pixels to shift TotemFrame downward (applied once per world entry)
-    druidTotemShiftY   = -25,   -- applied only while in Cat Form
-    warlockTotemShiftY = -25,   -- permanent while playing Warlock
-    warlockTotemShiftX = 0,
+    druidTotemShiftY   = -30,   -- applied only while in Cat Form
+	druidTotemShiftX = -5,
+    warlockTotemShiftY = -30,   -- permanent while playing Warlock
+    warlockTotemShiftX = -5,
 
     -- Texture paths
     texActive   = "Interface\\AddOns\\HeartPoints\\heart.tga",
@@ -75,10 +76,10 @@ local function ApplyDruidTotemShift()
     local inCat = (GetShapeshiftFormID() == DRUID_CAT_FORM)
     if inCat and not druidTotemShifted then
         druidTotemShifted = true
-        TotemFrame:AdjustPointsOffset(0, CFG.druidTotemShiftY)
+        TotemFrame:AdjustPointsOffset(CFG.druidTotemShiftX, CFG.druidTotemShiftY)
     elseif not inCat and druidTotemShifted then
         druidTotemShifted = false
-        TotemFrame:AdjustPointsOffset(0, -CFG.druidTotemShiftY)   -- exact reverse
+        TotemFrame:AdjustPointsOffset(CFG.druidTotemShiftX, -CFG.druidTotemShiftY)   -- exact reverse
     end
 end
 
