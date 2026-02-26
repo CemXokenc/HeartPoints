@@ -1,0 +1,8 @@
+## Interface: 120001
+## Title: HeartPoints
+## Notes: Replaces combo points and soul shards with heart icons
+## Author: CemXokenc
+## Version: 1.4
+## IconTexture: Interface\AddOns\HeartPoints\heart_grey.tga
+
+HeartPoints.lua
